@@ -1,2 +1,3 @@
 ﻿  test.c
+E:\GitHub\C_code\C_11_30\C_11_30\test.c(27): warning C4716: “triangleNumber”: 必须返回一个值
   C_11_30.vcxproj -> E:\GitHub\C_code\C_11_30\Debug\C_11_30.exe

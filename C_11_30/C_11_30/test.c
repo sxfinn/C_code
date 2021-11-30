@@ -1,27 +1,61 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
-void sortColors(int* nums, int numsSize)
+
+swap(int* a, int* b)
 {
-	for (int i = 0; i < numsSize - 1; ++i)
-	{
-		for (int j = 0; j < numsSize - 1 - i; ++j)
-		{
-			int tmp = 0;
-			if (nums[j] > nums[j + 1])
-			{
-				tmp = nums[j];
-				nums[j] = nums[j + 1];
-				nums[j + 1] = tmp;
-			}
-		}
-	}
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+int triangleNumber(int* nums, int numsSize)
+{
+    int i = 0;
+    int j = 0;
+    int minid = 0;
+    for (i = 0; i < numsSize; i++)
+    {
+        minid = i;
+        for (j = i; j < numsSize; j++)
+        {
+            if (nums[j] < nums[minid])
+                minid = j;
+        }
+        swap(nums + i, nums + minid);
+        
+    }
 }
 int main()
 {
-
-	return 0;
+    int arr[] = { 1,3,2,7,4,5,6,9,7,8,0 };
+    int ret = triangleNumber(arr, 11);
+    for (int i = 0; i < 11; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    return 0;
 }
+//void sortColors(int* nums, int numsSize)
+//{
+//	for (int i = 0; i < numsSize - 1; ++i)
+//	{
+//		for (int j = 0; j < numsSize - 1 - i; ++j)
+//		{
+//			int tmp = 0;
+//			if (nums[j] > nums[j + 1])
+//			{
+//				tmp = nums[j];
+//				nums[j] = nums[j + 1];
+//				nums[j + 1] = tmp;
+//			}
+//		}
+//	}
+//}
+//int main()
+//{
+//
+//	return 0;
+//}
 //int containsPattern(int* arr, int arrSize, int m, int k)
 //{
 //    int cnt = 0;
