@@ -2,6 +2,52 @@
 #include<stdio.h>
 #include<math.h>
 
+char* reorganizeString(char* s)
+{
+    char* ret = (char*)malloc(sizeof(char) * 501);
+    memset(ret, 0, sizeof(ret));
+    int sz = strlen(s);
+    int i = 0;
+    int j = 0;
+    for (i = 0; i < sz; i++)
+    {
+        int minid = i;
+        for (j = 0; j < sz; j++)
+        {
+            char tmp = 0;
+            if (s[j] < s[minid])
+            {
+                tmp = s[j];
+                s[j] = s[minid];
+                s[minid] = tmp;
+            }
+        }
+    }
+
+    int fast = 0, slow = 1;
+    ret[0] = s[0];
+    while (slow < sz)
+    {
+        int flag = 0;
+        while (fast < sz)
+        {
+            if (ret[slow - 1] != s[fast] && s[fast])
+            {
+                flag = 1;
+                ret[slow] = s[fast];
+                slow++;
+                s[fast] = 0;
+            }
+            fast++;
+        }
+        fast = 0;
+        if (flag == 0)
+            break;
+    }
+    if (slow == sz)
+        return ret;
+    return "";
+}
 
 //void swap(int* a, int* b)
 //{
