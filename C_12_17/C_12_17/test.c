@@ -1,12 +1,85 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<stdlib.h>
-
-int main()
+#define maxn 100000
+int hash[maxn];
+int findRepeatNumber(int* nums, int numsSize)
 {
-
+	memset(hash, 0, sizeof(hash));
+	for (int i = 0; i < numsSize; i++)
+	{
+		hash[nums[i]]++;
+	}
+	for (int i = 0; i < numsSize; i++)
+	{
+		if (hash[i] > 1)
+			return i;
+	}
 	return 0;
 }
+
+//#define maxn 500001
+//
+//int hash[maxn];
+//int cases = 0;
+//
+//int firstMissingPositive(int* nums, int numsSize)
+//{
+//	cases++;
+//	for (int i = 0; i < numsSize; i++)
+//	{
+//		if (nums[i] < maxn)
+//		{
+//			hash[nums[i]] = cases;
+//		}
+//	}
+//	for (int i = 1; i <= numsSize; i++)
+//	{
+//		if (hash[i] < cases)
+//			return i;
+//	}
+//	return numsSize + 1;
+//}
+
+//void dfs(char** grid, int i, int j, int r, int c)
+//{
+//	
+//	if (i < 0 || j < 0 || i >= r || j >= c || grid[i][j] == '0')
+//		return;
+//	grid[i][j] = '0';
+//	dfs(grid, i + 1, j, r, c);
+//	dfs(grid, i - 1, j, r, c);
+//	dfs(grid, i, j - 1, r, c);
+//	dfs(grid, i, j + 1, r, c);
+//
+//}
+//
+//int numIslands(char** grid, int gridSize, int* gridColSize)
+//{
+//	int cnt = 0;
+//	int i = 0, j = 0;
+//	for (i = 0; i < gridSize; i++)
+//	{
+//		for (j = 0; j < gridColSize[i]; j++)
+//		{
+//			if (grid[i][j] == '1')
+//			{
+//				dfs(grid, i, j, gridSize, *gridColSize);
+//				cnt++;
+//			}
+//		}
+//	}
+//	return cnt;
+//}
+//
+//int main()
+//{
+//	char* p = "abcd";
+//	p[1] = 'a';
+//	printf("%s", p);
+//	
+//	return 0;
+//}
 
 //int main()
 //{
