@@ -1,19 +1,99 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-
-int* getMaximumXor(int* nums, int numsSize, int maximumBit, int* returnSize) 
+#include<stdlib.h>
+int hash[10001];
+int checkSubarraySum(int* nums, int numsSize, int k)
 {
-	int max = (1 << maximumBit) - 1;
-	int* ans = (int*)malloc(sizeof(int) * numsSize);
-	ans[numsSize - 1] = max - nums[0];
-	for (int i = 1; i < numsSize; i++)
+	memset(hash, 0, sizeof(hash));
+	if (numsSize < 2)
+		return 0;
+	int* tmp = (int*)malloc(sizeof(int) * (numsSize + 1));
+	tmp[0] = 0;
+	for (int i = 1; i <= numsSize; i++)
 	{
-		nums[i] ^= nums[i - 1];
-		ans[numsSize - 1 - i] = max - nums[i];
+		tmp[i] = nums[i - 1] + tmp[i - 1];
 	}
-	*returnSize = numsSize;
-	return ans;
+	for (int i = 2; i <= numsSize; i++)
+	{
+		hash[tmp[i - 2] % k]++;
+		if (hash[tmp[i] % k])
+		{
+			return 1;
+		}
+	}
+	return 0;
 }
+int main()
+{
+	int arr[] = {23,2,6,4,7 };
+	int sz = 5;
+	int ret = checkSubarraySum(arr, sz, 13);
+	printf("%d ", ret);
+
+}
+
+//int checkSubarraySum(int* nums, int numsSize, int k)
+//{
+//	int i = 0;
+//	int j = 0;
+//	int sum = 0;
+//	int tmp = 0;
+//	for (i = 0; i < numsSize; i++)
+//	{
+//		sum += nums[i];
+//		tmp = sum;
+//		for (j = 0; j < i; j++)
+//		{
+//			
+//			if (tmp % k == 0)
+//				return 1;
+//			tmp -= nums[j];
+//		}
+//	}
+//	return 0;
+//}
+
+//int pivotIndex(int* nums, int numsSize)
+//{
+//	for (int i = 1; i < numsSize; i++)
+//	{
+//		nums[i] += nums[i - 1];
+//	}
+//	for (int i = 0; i < numsSize; i++)
+//	{
+//		if (nums[i] + nums[i - 1] == nums[numsSize - 1])
+//			return i;
+//	}
+//	return -1;
+//}
+//
+//
+//int* runningSum(int* nums, int numsSize, int* returnSize)
+//{
+//	int i = 0;
+//	int sum = 0;
+//	for (i = 1; i < numsSize; i++)
+//	{
+//		nums[i] += nums[i - 1];
+//	}	
+//	*returnSize = numsSize;
+//	return nums;
+//}
+//
+//
+//int* getMaximumXor(int* nums, int numsSize, int maximumBit, int* returnSize) 
+//{
+//	int max = (1 << maximumBit) - 1;
+//	int* ans = (int*)malloc(sizeof(int) * numsSize);
+//	ans[numsSize - 1] = max - nums[0];
+//	for (int i = 1; i < numsSize; i++)
+//	{
+//		nums[i] ^= nums[i - 1];
+//		ans[numsSize - 1 - i] = max - nums[i];
+//	}
+//	*returnSize = numsSize;
+//	return ans;
+//}
 
 //int* getMaximumXor(int* nums, int numsSize, int maximumBit, int* returnSize)
 //{
@@ -70,23 +150,23 @@ int* getMaximumXor(int* nums, int numsSize, int maximumBit, int* returnSize)
 //	return ret;
 //}
 
-int main()
-{
-	int arr[] = { 1,3,4,8 };
-	int a[] = { 0 ,1 };
-	int b[] = { 1,2 };
-	int c[] = { 0,3 };
-	int d[] = { 3,3 };
-	int* arr1[] = { a,b,c,d };
-	int col[] = { 2,2,2,2 };
-	int sz = 0;
-	int* ret = xorQueries(arr, 4, arr1, 4, col, &sz);
-	for (int i = 0; i < sz; i++)
-	{
-		printf("%d ", ret[i]);
-	}
-	return 0;
-}
+//int main()
+//{
+//	int arr[] = { 1,3,4,8 };
+//	int a[] = { 0 ,1 };
+//	int b[] = { 1,2 };
+//	int c[] = { 0,3 };
+//	int d[] = { 3,3 };
+//	int* arr1[] = { a,b,c,d };
+//	int col[] = { 2,2,2,2 };
+//	int sz = 0;
+//	int* ret = xorQueries(arr, 4, arr1, 4, col, &sz);
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", ret[i]);
+//	}
+//	return 0;
+//}
 //
 //int* constructArr(int* a, int aSize, int* returnSize)
 //{
