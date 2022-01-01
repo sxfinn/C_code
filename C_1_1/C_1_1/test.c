@@ -268,10 +268,7 @@ void test()
 int main()
 {
 	int a = 3;
-	int* ret = &a;
-	ret += 1;
-	*ret = 0;
-	printf("%d", *ret);
+	a = 10;
 	printf("%d", a);
 }
 //typedef struct Std
