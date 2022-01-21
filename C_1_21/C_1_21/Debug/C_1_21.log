@@ -1,0 +1,4 @@
+﻿  test.c
+E:\GitHub\C_code\C_1_21\C_1_21\test.c(9,9): warning C4477: “printf”: 格式字符串“%lf”需要类型“double”的参数，但可变参数 1 拥有了类型“int”
+E:\GitHub\C_code\C_1_21\C_1_21\test.c(8,1): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+  C_1_21.vcxproj -> E:\GitHub\C_code\C_1_21\Debug\C_1_21.exe
