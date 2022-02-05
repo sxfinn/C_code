@@ -10,7 +10,18 @@ void menu()
 }
 void Init(Contact* addrBook)
 {
-	memset(addrBook, 0, sizeof(Contact));
+	Information* tmp = (Information*)malloc(sizeof(Information) * DEFAULT_SZ);
+	if (tmp != NULL)
+	{
+		addrBook->data = tmp;
+	}
+	else
+	{
+		printf("%s\n", strerror(errno));
+		return;
+	}
+	addrBook->capacity = DEFAULT_SZ;
+	addrBook->sz = 0;
 }
 
 void show(Contact* addrBook)
@@ -32,10 +43,20 @@ void show(Contact* addrBook)
 
 void Add(Contact* addrBook)
 {
-	if (addrBook->sz == MAXSIZE)
+	if (addrBook->sz == addrBook->capacity)
 	{
-		printf("通讯录已满\n");
-		return;
+		Information* tmp = (Information*)realloc(addrBook->data, (addrBook->capacity + 2) * sizeof(Information));
+		if (tmp != NULL)
+		{
+			addrBook->data = tmp;
+		}
+		else
+		{
+			printf("%s\n", strerror(errno));
+			return;
+		}
+		addrBook->capacity += 2;
+		printf("扩容成功\n");
 	}
 	printf("请输入姓名\n");
 	scanf("%s", addrBook->data[addrBook->sz].name);
@@ -136,4 +157,12 @@ void Modify(Contact* addrBook)
 	printf("请输入地址\n");
 	scanf("%s", addrBook->data[pos].address);
 	printf("修改成功\n");
+}
+
+void Destroy(Contact* addrBook)
+{
+	free(addrBook->data);
+	addrBook->data = NULL;
+	addrBook->capacity = 0;
+	addrBook->sz = 0;
 }

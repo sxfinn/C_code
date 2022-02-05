@@ -12,6 +12,7 @@ int main()
 		switch (input)
 		{
 		case 0:
+			Destroy(&addrBook);
 			printf("ÍË³ö\n");
 			break;
 		case 1:

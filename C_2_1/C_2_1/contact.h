@@ -2,11 +2,14 @@
 
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
+#include<assert.h>
+#include<errno.h>
 #define MAXNAME 20
 #define MAXNUMBER 20
 #define MAXADDR 20
 #define MAXSIZE 100
-
+#define DEFAULT_SZ 10000000000
 typedef struct Information
 {
 	char name[MAXNAME];
@@ -17,8 +20,9 @@ typedef struct Information
 
 typedef struct Contact
 {
-	Information data[MAXSIZE];
+	Information* data;
 	int sz;
+	int capacity;
 }Contact;
 
 void menu();
@@ -29,3 +33,4 @@ void Del(Contact* addrBook);
 int Find(Contact* addrBook, char name[MAXNAME]);
 void Search(Contact* addrBook);
 void Modify(Contact* addrBook);
+void Destroy(Contact* addrBook);

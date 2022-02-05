@@ -14,6 +14,9 @@ int main()
 		printf("Ð¡¶Î");
 	else
 		printf("´ó¶Ë");
+	int* p = NULL;
+	free(p);
+	
 	return 0;
 }
 //typedef struct S
