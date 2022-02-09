@@ -5,8 +5,8 @@ void menu()
 	printf("***************************\n");
 	printf("*******1.add     2.del ****\n");
 	printf("*******3.search  4.modify *\n");
-	printf("*******5.show    6.exit****\n");
-	printf("***************************\n");
+	printf("*******5.show    0.exit****\n");
+	printf("*******   6.sort **********\n");
 }
 void Init(Contact* addrBook)
 {
@@ -165,4 +165,15 @@ void Destroy(Contact* addrBook)
 	addrBook->data = NULL;
 	addrBook->capacity = 0;
 	addrBook->sz = 0;
+}
+int cmp(const void* e1, const void* e2)
+{
+	struct Information* a = (struct Information*)e1;
+	struct Information* b = (struct Information*)e2;
+	return strcmp(a->name, b->name);
+}
+
+void sort(Contact* addrBook)
+{
+	qsort(addrBook->data, addrBook->sz, sizeof(struct Information), cmp);
 }

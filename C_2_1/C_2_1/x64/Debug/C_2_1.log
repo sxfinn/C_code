@@ -1,3 +1,2 @@
-﻿  contact.c
-C:\C_code\C_2_1\C_2_1\contact.c(23,23): warning C4305: “=”: 从“__int64”到“int”截断
+﻿  test.c
   C_2_1.vcxproj -> C:\C_code\C_2_1\x64\Debug\C_2_1.exe

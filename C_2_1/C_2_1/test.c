@@ -30,6 +30,9 @@ int main()
 		case 5:
 			show(&addrBook);
 			break;
+		case 6:
+			sort(&addrBook);
+			break;
 		default:
 			printf("输入错误，请重新输入\n");
 			break;

@@ -9,7 +9,7 @@
 #define MAXNUMBER 20
 #define MAXADDR 20
 #define MAXSIZE 100
-#define DEFAULT_SZ 10000000000
+#define DEFAULT_SZ 1000
 typedef struct Information
 {
 	char name[MAXNAME];
@@ -34,3 +34,5 @@ int Find(Contact* addrBook, char name[MAXNAME]);
 void Search(Contact* addrBook);
 void Modify(Contact* addrBook);
 void Destroy(Contact* addrBook);
+int cmp(const void* e1, const void* e2);
+void sort(Contact* addrBook);
