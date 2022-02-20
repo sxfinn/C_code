@@ -6,11 +6,16 @@
 
 int main()
 {
-	FILE* pf = fopen("test.txt", "r");
+	FILE* pf = fopen("test.txt", "w");
 	if (pf == NULL)
 	{
 		printf("%s", strerror(errno));
 	}
-
+	fputc('a', pf);
+	if (fclose(pf))
+	{
+		printf("πÿ±’ ß∞‹;");
+	}
+	FILE* pf
 	return 0;
 }
