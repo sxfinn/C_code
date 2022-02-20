@@ -11,11 +11,21 @@ int main()
 	{
 		printf("%s", strerror(errno));
 	}
-	fputc('a', pf);
+	fputc('b', pf);
 	if (fclose(pf))
 	{
 		printf("πÿ±’ ß∞‹;");
 	}
-	FILE* pf
+	pf = fopen("test.txt", "rt");
+	if (pf == NULL)
+	{
+		printf("%s", strerror(errno));
+	}
+	char ret = fgetc(pf);
+	printf("%c", ret);
+	if (fclose(pf))
+	{
+		printf("πÿ±’ ß∞‹");
+	}
 	return 0;
 }
