@@ -4,6 +4,7 @@ int main()
 	int input = 0;
 	Contact addrBook;
 	Init(&addrBook);
+	reload(&addrBook);
 	do
 	{
 		menu();
@@ -12,6 +13,7 @@ int main()
 		switch (input)
 		{
 		case 0:
+			Save(&addrBook);
 			Destroy(&addrBook);
 			printf("ÍË³ö\n");
 			break;

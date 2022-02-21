@@ -23,7 +23,40 @@ void Init(Contact* addrBook)
 	addrBook->capacity = DEFAULT_SZ;
 	addrBook->sz = 0;
 }
-
+void reload(Contact* addrBook)
+{
+	FILE* pf = fopen("contact.txt", "rb");
+	if (pf == NULL)
+	{
+		printf("%s", strerror(errno));
+		return;
+	}
+	Information* tmp = NULL;
+	Information buf = { 0 };
+	while (fread(&buf, sizeof(Information), 1, pf) != 0)
+	{
+		if (addrBook->sz == addrBook->capacity)
+		{
+			tmp = realloc(addrBook->data, sizeof(Information) * (addrBook->capacity + 2));
+			if (tmp != NULL)
+			{
+				addrBook->data = tmp;
+				addrBook->capacity += 2;
+				printf("扩容成功\n");
+			}
+			else
+			{
+				printf("%s", strerror(errno));
+				return;
+			}
+		}
+		addrBook->data[addrBook->sz] = buf;
+		addrBook->sz++;
+	}
+	printf("加载成功\n");
+	fclose(pf);
+	pf = NULL;
+}
 void show(Contact* addrBook)
 {
 	printf("%-15s\t", "姓名");
@@ -177,3 +210,17 @@ void sort(Contact* addrBook)
 {
 	qsort(addrBook->data, addrBook->sz, sizeof(struct Information), cmp);
 }
+
+void Save(Contact* addrBook)
+{
+	FILE* pf = fopen("contact.txt", "wb");
+	if (pf == NULL)
+	{
+		printf("%s", strerror(errno));
+		return;
+	}
+	fwrite((void*)addrBook->data, sizeof(Information), addrBook->sz, pf);
+	fclose(pf);
+	pf = NULL;
+}
+
