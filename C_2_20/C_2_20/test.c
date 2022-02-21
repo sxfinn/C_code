@@ -6,12 +6,21 @@
 
 int main()
 {
-	char arr[100];
-	FILE* pf = fopen("test.txt", "r");
-	fscanf(pf, "%s", arr);
-	fscanf(pf, "%s", arr);
+	int a;
+	a = 1;
+	printf("%d", a);
 	return 0;
 }
+
+
+//int main()
+//{
+//	char arr[100];
+//	FILE* pf = fopen("test.txt", "r");
+//	fscanf(pf, "%s", arr);
+//	fscanf(pf, "%s", arr);
+//	return 0;
+//}
 
 //struct A
 //{
