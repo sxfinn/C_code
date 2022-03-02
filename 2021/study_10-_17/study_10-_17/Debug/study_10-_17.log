@@ -1,0 +1,3 @@
+﻿  study_10_17.c
+D:\code-c++\study_10-_17\study_10-_17\study_10_17.c(7,23): warning C4013: “strlen”未定义；假设外部返回 int
+  study_10-_17.vcxproj -> D:\code-c++\study_10-_17\Debug\study_10-_17.exe

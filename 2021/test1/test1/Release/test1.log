@@ -1,0 +1,9 @@
+﻿  test.c
+D:\code-c++\test1\test1\test.c(14,9): warning C4477: “printf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“int”
+D:\code-c++\test1\test1\test.c(11,1): warning C4047: “初始化”:“char”与“char *”的间接级别不同
+  正在生成代码
+  4 of 4 functions (100.0%) were compiled.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  test1.vcxproj -> D:\code-c++\test1\Release\test1.exe
