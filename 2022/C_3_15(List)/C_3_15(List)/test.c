@@ -1,20 +1,39 @@
 #include"test.h"
 
-void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n)
-{
-	int i = m - 1;
-	int j = n - 1;
-	int cur = nums1Size - 1;
-	while (i >= 0 && j >= 0)
-	{
-		if (nums1[i] > nums2[j])
-			nums1[cur--] = nums1[i--];
-		else
-			nums1[cur--] = nums2[j--];
-	}
-	while(j >= 0)
-		nums1[cur--] = nums2[j--];
-}
+//struct A
+//{
+//	int nums;
+//	int a;
+//
+//};
+//struct B
+//{
+//	int nums ;
+//	int b ;
+//	struct A a1;
+//};
+//
+//int main()
+//{
+//	struct A n1 = { 8,9 };
+//	struct B n = {1,2,n1};
+//	return 0;
+//}
+//void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n)
+//{
+//	int i = m - 1;
+//	int j = n - 1;
+//	int cur = nums1Size - 1;
+//	while (i >= 0 && j >= 0)
+//	{
+//		if (nums1[i] > nums2[j])
+//			nums1[cur--] = nums1[i--];
+//		else
+//			nums1[cur--] = nums2[j--];
+//	}
+//	while(j >= 0)
+//		nums1[cur--] = nums2[j--];
+//}
 
 //单链表的增删查改
 //#include"test.h"
