@@ -46,16 +46,17 @@ void DListPushBack(DListNode* phead, DataType val)
 void DListPrint(DListNode* phead)
 {
 	DListNode* cur = phead;
-	if (!cur)
-		printf("NULLL");	
-	while (cur->next != phead)
+	if (cur)
 	{
-		cur = cur->next;
-		printf("%d", cur->val);
-		printf("->");
+		while (cur->next != phead)
+		{
+			cur = cur->next;
+			printf("%d", cur->val);
+			printf("->");
+		}
+		printf("head");
+		printf("\n");
 	}
-	printf("head");
-	printf("\n");
 }
 
 void DListPopBack(DListNode* phead)
@@ -152,6 +153,16 @@ void DListPopFront(DListNode* phead)
 	first->prev = phead;
 }
 
+void DListEraze(DListNode* pos)
+{
+	assert(pos);
+	DListNode* prev = pos->prev;
+	DListNode* next = pos->next;
+	free(pos);
+	pos = NULL;
+	prev->next = next;
+	next->prev = prev;
+}
 void test2()
 {
 	DListNode* phead;
@@ -159,9 +170,11 @@ void test2()
 	DListPushBack(phead, 1);
 	DListPushBack(phead, 2);
 	DListPushBack(phead, 3);
-	DListPopFront(phead);
-	DListPopFront(phead);
-	DListPopFront(phead);
+	DListNode* ret = DListFind(phead, 2);
+	DListEraze(ret);
+	//DListPopFront(phead);
+	//DListPopFront(phead);
+	//DListPopFront(phead);
 	//DListPopBack(phead);
 	//DListPopBack(phead);
 	//DListPopBack(phead);
