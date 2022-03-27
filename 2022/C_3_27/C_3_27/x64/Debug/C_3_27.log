@@ -1,0 +1,8 @@
+﻿  test.c
+E:\GitHub\C_code\2022\C_3_27\C_3_27\test.c(220,19): warning C4013: “isValid”未定义；假设外部返回 int
+E:\GitHub\C_code\2022\C_3_27\C_3_27\test.c(99): warning C4716: “myQueueEmpty”: 必须返回一个值
+E:\GitHub\C_code\2022\C_3_27\C_3_27\test.c(94): warning C4716: “myQueuePeek”: 必须返回一个值
+E:\GitHub\C_code\2022\C_3_27\C_3_27\test.c(79): warning C4716: “myQueueCreate”: 必须返回一个值
+E:\GitHub\C_code\2022\C_3_27\C_3_27\test.c(89): warning C4716: “myQueuePop”: 必须返回一个值
+test.obj : error LNK2019: 无法解析的外部符号 isValid，函数 main 中引用了该符号
+E:\GitHub\C_code\2022\C_3_27\x64\Debug\C_3_27.exe : fatal error LNK1120: 1 个无法解析的外部命令
