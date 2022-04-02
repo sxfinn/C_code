@@ -28,7 +28,7 @@ void reload(Contact* addrBook)
 	FILE* pf = fopen("contact.txt", "rb");
 	if (pf == NULL)
 	{
-		printf("%s", strerror(errno));
+		printf("%s\n", strerror(errno));
 		return;
 	}
 	Information* tmp = NULL;
