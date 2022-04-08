@@ -1,3 +1,0 @@
-﻿  test.c
-E:\GitHub\C_code\2022\C_4_4\C_4_4\test.c(15,14): warning C4013: “Sleep”未定义；假设外部返回 int
-  C_4_4.vcxproj -> E:\GitHub\C_code\2022\C_4_4\x64\Debug\C_4_4.exe

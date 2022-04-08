@@ -1,0 +1,5 @@
+﻿  heap.c
+E:\GitHub\C_code\2022\C_4_4\C_4_4\heap.c(20,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\GitHub\C_code\2022\C_4_4\C_4_4\heap.c(44,39): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\GitHub\C_code\2022\C_4_4\C_4_4\heap.c(59,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  C_4_4.vcxproj -> E:\GitHub\C_code\2022\C_4_4\x64\Debug\C_4_4.exe
