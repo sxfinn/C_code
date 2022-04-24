@@ -103,9 +103,9 @@ void AdjustDown(int* arr, int sz, int root)
 	int child = root * 2 + 1;
 	while (child < sz)
 	{
-		if (child + 1 < sz && arr[child] > arr[child + 1])
+		if (child + 1 < sz && arr[child] < arr[child + 1])
 			child++;
-		if (arr[child] < arr[parent])
+		if (arr[child] > arr[parent])
 			swap(arr + parent, arr + child);
 		else
 			break;
@@ -340,8 +340,8 @@ int PartSort2(int* arr, int left, int right)
 }
 int PartSort3(int* arr, int left, int right)
 {
-	int keyi = rand() % (right - left + 1) + left;
-	//int keyi = GetMid(arr, left, right);
+	//int keyi = rand() % (right - left + 1) + left;
+	int keyi = GetMid(arr, left, right);
 	swap(arr + left, arr + keyi);
 	int prev = left;
 	int cur = left + 1;
@@ -409,9 +409,9 @@ int main()
 	int sz = sizeof(arr) / sizeof(arr[0]);
 	//BubbleSort(arr, sz);
 	//SelectionSort1(arr, sz);
-	//HeapSort(arr,sz);
+	HeapSort(arr,sz);
 	//ShellSort(arr, sz);
-	QuickSort1(arr, 0, sz - 1);
+	//QuickSort1(arr, 0, sz - 1);
 	//MergeSort1(arr, 0, sz - 1);
 	print(arr, sz);
 	return 0;
