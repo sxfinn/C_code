@@ -7,6 +7,8 @@ void swap(int* a, int* b)
 	*a = *b;
 	*b = tmp;
 }
+
+
 void shell_sort(int* arr, int sz)
 {
 	int gap = 0;

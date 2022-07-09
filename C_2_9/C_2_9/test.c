@@ -5,7 +5,20 @@
 #include<assert.h>
 #include<string.h>
 
-
+//struct S
+//{
+//    int _a : 2;
+//    int _b : 2;
+//};
+//
+//int main()
+//{
+//    struct S s = { 0 };
+//    s._b = 3;
+//    s._a = 1;
+//    printf("%d %d", s._a, s._b);
+//    return 0;
+//}
 //int* findsingle(int* p, int sz, int* returnSize)
 //{
 //	int* ret = (int*)malloc(sizeof(int) * 2);
