@@ -1,0 +1,3 @@
+﻿  test.c
+E:\GitHub\C_code\2022\C_3_28\C_3_28\test.c(49,18): warning C4047: “=”:“int”与“ListNode *”的间接级别不同
+  C_3_28.vcxproj -> E:\GitHub\C_code\2022\C_3_28\x64\Debug\C_3_28.exe
